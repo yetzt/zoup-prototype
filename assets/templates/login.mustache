@@ -1,0 +1,29 @@
+{{>head}}
+{{>header}}
+{{>nav}}
+<main>
+	<h1>Login</h1>
+	<section>
+		<form action="/login" method="post">
+			{{#error}}
+			<div class="notification">
+				These weren't the magic words. You have three more tries before you get turned into a frog.
+			</div>
+			{{/error}}
+	
+			<fieldset>
+				<input type="username" id="username" name="username" placeholder="Username">
+			</fieldset>
+		
+			<fieldset>
+				<input type="password" id="password" name="password" placeholder="Password">
+			</fieldset>
+
+			<fieldset right>
+				<button type="submit" >Login</button>
+			</fieldset>
+
+		</form>
+	</section>
+</main>
+{{>foot}}

@@ -1,0 +1,20 @@
+{{>head}}
+{{>header}}
+{{>nav}}
+<main>
+	{{#posts}}
+	{{>post}}
+	{{/posts}}
+	{{#posts.length}}
+	{{#before}}
+	<div id="end" data-next-url="{{next_url}}" data-before="{{before}}"><a href="{{base}}/?before={{before}}">Load more Posts</a></div>
+	{{/before}}
+	{{^before}}
+	<div id="end">This is the End.</div>
+	{{/before}}
+	{{/posts.length}}
+	{{^posts}}
+	<p>This stream is empty</p>
+	{{/posts}}
+</main>
+{{>foot}}

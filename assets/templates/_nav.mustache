@@ -1,0 +1,19 @@
+<nav id="nav-main">
+	<a id="stream" class="{{current-stream}}" href="{{{base}}}/">Stream</a>
+	<a id="friends" class="{{current-friends}}" href="{{{base}}}/friends">Friends</a>
+</nav>
+<div id="nav-meta-wrapper">
+	<nav id="nav-meta">
+		{{^auth}}
+		<a id="login" href="{{{base}}}/login" class="{{current-login}}" title="Login"><i class="icon-key"></i></a>
+		<!-- a id="follow" href="web+zoup://follow/?url={{{url}}}" title="Follow"><i class="icon-heart"></i></a -->
+		<!-- a id="follow" href="javascript:;" onclick="window.open('web+zoup:follow?url={{{url}}}','new-window','width=500,height=500,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes')" title="Follow"><i class="icon-heart"></i></a -->
+		{{/auth}}
+		{{#auth}}
+		<a id="publish" href="{{{base}}}/publish" class="{{current-publish}}" title="Publish"><i class="icon-plus"></i></a>
+		<a id="follow" href="{{{base}}}/subscriptions" class="{{current-subscriptions}}" title="Subscriptions"><i class="icon-star"></i></a>
+		<a id="settings" href="{{{base}}}/settings" class="{{current-settings}}" title="Settings"><i class="icon-settings"></i></a>
+		<a id="logout" class="end" href="{{{base}}}/logout" title="Logout"><i class="icon-switch"></i></a>
+		{{/auth}}
+	</nav>
+</div>

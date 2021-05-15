@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html{{#light-theme}} light{{/light-theme}}{{#current}} class="{{.}}"{{/current}}>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{title}}</title>
+	<base href="{{base}}/">
+	<meta name="description" content="{{description}}">
+	<meta name="generator" content="zoup">
+	{{#main-color}}<meta name="theme-color" content="{{{.}}}">{{/main-color}}
+	<meta name="color-scheme" content="{{#light-theme}}light{{/light-theme}}{{^light-theme}}dark{{/light-theme}}">
+	<link rel="alternate" type="application/feed+json" href="{{{zoup}}}/feed.json" title="JSON Feed">
+	<link rel="stylesheet" type="text/css" href="{{{zoup}}}/fonts/source-sans-pro/source-sans-pro.css">
+	<link rel="stylesheet" type="text/css" href="{{{zoup}}}/css/normalize.min.css">
+	<link rel="stylesheet" type="text/css" href="{{{zoup}}}/icons/icons.css" />
+	<link rel="stylesheet" type="text/css" href="{{{zoup}}}/css/zoup.css" />
+	{{#main-color}}
+	<style type="text/css">
+		:root { --main-background: {{{.}}}; }
+	</style>
+	{{/main-color}}
+	<link rel="stylesheet" type="text/css" href="{{{zoup}}}/css/forms.css" />
+	<script type="text/javascript" src="{{{zoup}}}/js/cash.min.js"></script>
+	{{#auth}}
+	<script type="text/javascript" src="{{{zoup}}}/js/filesize.min.js"></script>
+	<script type="text/javascript" src="{{{zoup}}}/js/tags.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{{zoup}}}/css/publish.css" />
+	<script type="text/javascript">
+		// zoup prototcol handler pointing to own instance
+		$(function(){ if (typeof navigator.registerProtocolHandler === "function") navigator.registerProtocolHandler("web+zoup","{{{base}}}/discover?url=%s"); }); // FIXME proper url
+	</script>
+	{{#settings}}
+	<script type="text/javascript" src="{{{zoup}}}/js/settings.js"></script>
+	{{/settings}}
+	<script type="text/javascript" src="{{{zoup}}}/js/publish.js"></script>
+	{{/auth}}
+	{{#current-stream}}
+	<script type="text/javascript" src="{{{zoup}}}/js/mustache.min.js"></script>
+	<script type="text/javascript" src="{{{zoup}}}/js/stream.js"></script>
+	<script type="text/mustache" id="template-post">{{{templates.post}}}</script>
+	{{/current-stream}}
+</head>
+<body>

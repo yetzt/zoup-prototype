@@ -1,0 +1,105 @@
+{{#content}}
+	{{#type-html}}
+	<div class="content text html">
+		{{{html}}}
+	</div>
+	{{/type-html}}
+	{{#type-text}}
+	<div class="content text plain">
+		{{{text}}}
+	</div>
+	{{/type-text}}
+	{{#type-markdown}}
+	<div class="content text markdown">
+		{{{markdown}}}
+	</div>
+	{{/type-markdown}}
+
+	{{#type-link}}
+	<div class="content link">
+		<a href="{{{url}}}">{{url}}</a>
+	</div>
+	{{/type-link}}
+	{{#type-link-web}}
+	<div class="content link web">
+		{{#title}}<a href="{{{url}}}"><b>{{title}}</b></a>{{/title}}
+		{{#image}}<a href="{{{url}}}"><img src="{{{image}}}"></a>{{/image}}
+		{{#description}}<a href="{{{url}}}"><i>{{description}}</i></a>{{/description}}
+		<a href="{{{url}}}">{{url}}</a>
+	</div>
+	{{/type-link-web}}
+	{{#type-link-image}}
+	<div class="content link image">
+		<a href="{{{url}}}"><img src="{{{image}}}"{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}></a>
+		<a href="{{{url}}}">{{url}}</a>
+	</div>
+	{{/type-link-image}}
+	{{#type-link-video}}
+	<div class="content link video">
+		<video controls{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
+			<source src="{{{url}}}"{{#mime}} type="{{.}}"{{/mime}}>
+		</video>
+		<a href="{{{url}}}">{{url}}</a>
+	</div>
+	{{/type-link-video}}
+	{{#type-link-audio}}
+	<div class="content link audio">
+		<audio controls>
+			<source src="{{{url}}}"{{#mime}} type="{{.}}"{{/mime}}>
+		</audio>
+		<a href="{{{url}}}">{{url}}</a>
+	</div>
+	{{/type-link-audio}}
+	
+	{{#type-link-tweet}}
+	<div class="content link tweet">
+		<div class="tweet content">{{{content}}}</div>
+		{{#embeds}}
+		<div class="tweet embed {{type}}">
+			{{#embed-type-video}}
+			<video controls{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
+				<source src="{{{src}}}"{{#mime}} type="{{.}}"{{/mime}}>
+			</video>
+			{{/embed-type-video}}
+			{{#embed-type-image}}
+			<img src="{{{src}}}"{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
+			{{/embed-type-image}}
+		</div>
+		{{/embeds}}
+		<a href="{{{url}}}">{{#userimg}}<img src="{{userimg}}" alt="{{username}}"> {{/userimg}}@{{username}}</a>
+	</div>
+	{{/type-link-tweet}}
+	
+	{{#type-link-embed}}
+	<div class="content link embed">
+		<a href="{{{url}}}" data-src="{{{src}}}"{{#width}} data-width="{{.}}"{{/width}}{{#height}} data-height="{{.}}"{{/height}}>{{title}}{{^title}}{{url}}{{/title}}</a>
+	</div>
+	{{/type-link-embed}}
+	
+	{{#type-image}}
+	<div class="content image">
+		<img src="{{{url}}}"{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}{{#alt}} alt="{{.}}" title="{{.}}"{{/alt}}>
+	</div>
+	{{/type-image}}
+	
+	{{#type-video}}
+	<div class="content video">
+		<video controls{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
+			<source src="{{{url}}}"{{#mime}} type="{{.}}"{{/mime}}>
+		</video>
+	</div>
+	{{/type-video}}
+
+	{{#type-audio}}
+	<div class="content audio">
+		<audio controls>
+			<source src="{{{url}}}"{{#mime}} type="{{.}}"{{/mime}}>
+		</audio>
+	</div>
+	{{/type-audio}}
+	
+	{{#type-caption}}
+	<div class="content caption">{{{caption}}}</div>
+	{{/type-caption}}
+	
+{{/content}}

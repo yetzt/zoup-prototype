@@ -1,0 +1,352 @@
+.z-publish {
+
+	display: flex;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+
+	flex-direction: column;
+	margin: 0;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+		
+}
+
+body > .z-publish-wrapper .z-publish {
+	height: auto;
+	min-height: 100vh;
+	margin: 0;
+	padding: 2rem 0;
+}
+
+body > .z-publish-wrapper {
+	display: block;
+	position: fixed;
+	background-color: var(--main-background);
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: auto;
+	
+	scrollbar-color: var(--main-additive) transparent;
+
+}
+
+.publish body {
+	overflow: hidden;
+}
+
+.z-publish .escape {
+	display: flex;
+	position: fixed;
+	top: 2rem;
+	right: 2rem;
+	width: 3rem;
+	height: 3rem;
+	background-color: var(--main-text);
+	color: var(--main-background);
+	font-size: 1rem;
+	text-decoration: none;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	opacity: .5;
+	transform: opacity .1;
+}
+
+.z-publish .escape:hover {
+	opacity: .7;
+}
+
+/* form */
+
+.z-publish form {
+	display: flex;
+	width: 100%;
+	max-width: 1000px;
+	background-color: rgba(0,0,0,0.1);
+	margin: 0;
+	padding: 20px;
+	flex-direction: column;
+	gap: 1rem;
+	min-height: min-content;
+	align-items: center;
+	align-content: stretch;
+	border-radius: .3rem;
+}
+
+.z-publish form > * {
+	width: 100%;
+}
+
+.z-publish .title input:not(:focus) {
+	font-size: 2rem;
+	height: 2rem;
+	padding-left: 0;
+	background: none;
+	color: #fff;
+}
+
+.z-publish button.pick {
+	display: flex;
+	font-size: .8rem;
+	height: 1.4rem;
+	color: #999;
+	background-color: rgba(0,0,0,0.3);
+	align-self: center;
+	margin: auto;
+}
+
+.z-publish button.pick {
+	display: flex;
+	font-size: .8rem;
+	height: 1.4rem;
+	color: #999;
+	background-color: rgba(0,0,0,0.3);
+	align-self: center;
+	margin: auto;
+}
+
+/* specifics */
+
+.z-publish button.publish {
+	font-size: 1.2rem;
+	line-height: 2.6rem;
+	height: 2.4rem;
+	align-items: baseline;
+	background-color: var(--main-color);
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	color: var(--main-text);
+	padding: 0 .8rem;
+}
+
+.z-publish button.publish i {
+	font-size: .8em;
+	color: var(--main-text);
+}
+
+.z-publish button.publish:hover {
+	background-color: var(--main-color-hl);
+	color: #111;
+}
+
+.z-publish div.typeselect {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1rem;
+	padding: 2rem 0;
+	font-size: 1.5rem;
+}
+
+.z-publish div.typeselect button {
+	display: flex;
+	height: 2em;
+	width: 2em;
+	line-height: 4em;
+	font-size: 3em;
+	justify-content: center;
+	align-items: center;
+	border-radius: .5rem;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.3);
+}
+
+.z-publish div.typeselect button i {
+	color: rgba(255,255,255,0.8);
+}
+
+.z-publish div.typeselect button span {
+	display: none;
+	position: absolute;
+	margin-top: 1em;
+	font-size: 1rem !important;
+	color: rgba(255,255,255,0.8);
+}
+
+
+.z-publish div.typeselect button:hover span {
+	display: flex;
+	position: absolute;
+	top: 2em;
+	font-size: 1em;
+}
+
+.z-publish div.typeselect button:hover {
+	background-color: rgba(0,0,0,0.6);
+}
+
+.z-publish div.typeselect button:hover i {
+	color: rgba(255,255,255,0.9);
+}
+
+.z-publish div.typeselect button:active {
+	background-color: #444;
+}
+
+
+.z-publish div.upload {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}
+
+.z-publish div.link {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}
+
+.z-publish div.preview {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	gap: 1rem;
+	background-color: rgba(0,0,0,0.3);
+	padding: .5rem;
+}
+	
+.z-publish div.preview img,
+.z-publish div.preview video,
+.z-publish div.preview audio {
+	max-width: 100%;
+	width: 100%;
+	user-select: none;
+}
+
+.z-publish div.preview img {
+	pointer-events: none;
+}
+
+.z-publish div.preview span {
+	display: block;
+	color: rgba(255,255,255,0.8);
+	min-height: 1rem;
+	line-height: 1rem;
+	font-size: .8rem;
+	font-weight: 300;
+}
+
+.z-publish div.preview a {
+	position: absolute;
+	padding: .5rem;
+	right: 0;
+	bottom: 0;
+	color: #fff;
+	text-shadow: 0 0 .5em #000;
+	cursor: pointer;
+}
+
+.z-publish div.action {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.z-publish div.action .add {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: .5rem;
+}
+
+.z-publish div.error {
+	display: flex;
+	background-color: #111;
+	color: #c33;
+	padding: .5rem;
+	justify-content: center;
+	border-radius: .3rem;
+}
+
+
+.z-publish .tags {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .5rem;
+}
+
+.z-publish .tags input {
+	display: flex;
+	border: none;
+	background: transparent !important;
+	outline: none;
+	height: 1.8rem;
+	margin: 0;
+	padding: 0;
+	font-size: .9rem;
+	width: 8rem;
+	flex-grow: 1;
+	color: #fff !important;
+}
+
+.z-publish .tags input[hidden] {
+	display: none;
+}
+
+.z-publish .tags .tag {
+	display: flex;
+	position: relative;
+	height: 1.8rem;
+	font-size: .9rem;
+	align-items: center;
+	padding: 0 .5rem;
+	background-color: #222;
+	color: #fff;
+	border-radius: .3rem;
+	user-select: none;
+	gap: .5rem;
+	cursor: pointer;
+}
+
+.z-publish .tags .tag:hover {
+	background-color: #311;
+}
+
+.z-publish .tags .tag a {
+	display: none;
+	color: #999;
+}
+
+.z-publish .tags .tag:hover a {
+	display: flex;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1.6rem;
+	height: 1.8rem;
+	background-color: #100;
+	align-items: center;
+	justify-content: center;
+	border-top-left-radius: .3rem;
+	border-bottom-left-radius: .3rem;
+	font-size: 1.2rem;
+}
+
+/* more */
+
+.z-publish > p {
+	color: rgba(255,255,255,0.8);
+	font-size: .9rem;
+	font-weight: 300;
+}
+
+.z-publish > p > kbd {
+	display: inline-block;
+	padding: .2rem;
+	margin: 0 .2rem;
+	border-radius: .2rem;
+	color: rgba(255,255,255,0.8);
+	background: rgba(0,0,0,0.3);
+}
+
+/* external */

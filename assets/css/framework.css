@@ -1,0 +1,29 @@
+/* headings */
+
+body {
+	font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+	margin: 0;
+	padding: 0;
+} 
+
+/* form */
+
+form {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	gap: 1em;
+	align-items: flex-start;
+	background-color: #0001;
+	padding: 1rem;
+	border-radius: .2rem;
+}
+
+/* inputs */
+

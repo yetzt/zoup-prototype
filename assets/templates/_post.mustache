@@ -1,0 +1,22 @@
+<article id="post-{{id}}">
+	{{#title}}<h2>{{.}}</h2>{{/title}}
+	<div class="meta">
+		<div class="authors">
+			{{#authors}}
+			<a href="{{url}}" title="{{name}}">{{#avatar}}<img src="{{.}}">{{/avatar}}{{^avatar}}<img src="{{zoup}}/images/default.png">{{/avatar}}</a>
+			{{/authors}}
+		</div>
+	</div>
+	<div class="content-wrapper">
+	{{{content_html}}}
+	{{#tags.length}}
+	<div class="tags">
+		{{#tags}}<a href="{{base}}/tag/{{.}}">{{.}}</a>{{/tags}}
+	</div>
+	{{/tags.length}}
+	</div>
+	<div class="action">
+		<button class="repost" data-url="{{url}}"><i class="icon-repost"></i> repost</button>
+		<button class="react" data-url="{{url}}"><i class="icon-comment"></i> react</button>
+	</div>
+</article>

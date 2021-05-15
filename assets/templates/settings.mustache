@@ -1,0 +1,43 @@
+{{>head}}
+{{>header}}
+{{>nav}}
+<main>
+	<h1>Settings</h1>
+	<section>
+		<h2>Avatar</h2>
+		<form action="/settings/avatar" method="post">
+			<p>Pick a file: PNG or JPEG, square and at least 512&times;512px</p>
+			<div class="settings-avatar">
+				<label for="avatar">
+					{{#avatar}}<img src="{{{.}}}" class="avatar">{{/avatar}}
+					{{^avatar}}<img src="{{zoup}}/images/default.png" class="avatar">{{/avatar}}
+				</label>
+				<input type="file" name="avatar" id="avatar">
+			</div>
+			<button type="submit">Save</button>
+		</form>
+	</section>
+	<section>
+		<h2>Colors</h2>
+		<form action="/settings/color" method="post" id="colors">
+			<fieldset>
+				<input type="checkbox" id="theme-switch"{{#light-theme}} checked{{/light-theme}} oninput="(this.checked)?$('html').attr('light',true):$('html').removeAttr('light')" />
+				<label for="theme-switch">Light Theme</label>
+			</fieldset>
+			<fieldset>
+				<input type="color" id="main-color" name="main-color" oninput="document.documentElement.style.setProperty('--main-background', this.value);" value="{{#main-color}}{{{.}}}{{/main-color}}{{^main-color}}#d3236d{{/main-color}}">
+				<label for="main-color">Main Background Color</label>
+			</fieldset>
+			<button type="submit">Save</button>
+		</form>
+	</section>
+	<section>
+		<h2>Description</h2>
+		<form action="/settings/description" method="post" id="description">
+			<p>This will appear in your meta tags and feed.</p>
+			<textarea name="description">{{#description}}{{.}}{{/description}}</textarea>
+			<button type="submit">Update</button>
+		</form>
+	</section>
+</main>
+{{>foot}}
