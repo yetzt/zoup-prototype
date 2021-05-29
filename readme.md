@@ -19,6 +19,7 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 
 ## stuff to be done next
 
+* feed sorting (wtf)
 * (default) avatar is broken when coming from websocket
 * proxy those stüpid twitter images
 * content styles
