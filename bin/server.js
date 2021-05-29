@@ -120,9 +120,13 @@ router.get('/publish', function(req, res){
 // subscription management
 router.get('/subscriptions', function(req, res){
 	if (!req.session.auth) return res.redirect(config.get("url")); // FIXME make this middleware
-	res.render('subscriptions', { 
-		req: req,
-		current: "subscriptions",
+	zoup.subscriptions(function(err, subscriptions){
+		console.log(subscriptions);
+		res.render('subscriptions', { 
+			req: req,
+			current: "subscriptions",
+			subscriptions: subscriptions,
+		});
 	});
 });
 
@@ -339,13 +343,21 @@ router.post('/api/subscriptions', function(req, res){
 });
 
 // new subscription
-router.post('/api/subscriptions/follow', function(req, res){
-	res.status(500).end("Not implemented."); // FIXME
+router.post('/api/subscriptions/follow', bodyparser.json(), function(req, res){
+	if (!req.session.auth) return res.status(401).end("Unauthorized"); // FIXME make middleware
+	zoup.follow(req.body.feed, function(err,feed){
+		if (err) return res.status(500).json({ error: err.toString() });
+		res.status(200).json(feed);
+	});
 });
 
 // end subscription
-router.post('/api/subscriptions/unfollow', function(req, res){
-	res.status(500).end("Not implemented."); // FIXME
+router.post('/api/subscriptions/unfollow', bodyparser.json(), function(req, res){
+	if (!req.session.auth) return res.status(401).end("Unauthorized"); // FIXME make middleware
+	zoup.unfollow(req.body.feed, function(err, feed){
+		if (err) return res.status(500).json({ error: err.toString() });
+		res.status(200).json(feed);
+	});
 });
 
 // listen

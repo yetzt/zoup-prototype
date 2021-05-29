@@ -2,15 +2,23 @@
 {{>header}}
 {{>nav}}
 <main>
-	<h1>Subscriptions</h1>
+	<h1>Subscribe</h1>
 	<section>
-		<form action="/subscriptions" method="post" id="subscriptions">
+		<form action="/subscriptions" method="post" id="subscribe">
 			<fieldset>
-				<input name="feed" type="url" value="" pattern="https://.*/feed.json" placeholder="Feed URL" required autofocus>
+				<input name="feed" type="url" value="" placeholder="Feed URL" required autofocus><!-- pattern="https://.*/feed.json" -->
 				<button type="submit"><i class="icon-plus"></i> Subscribe</button>
 			</fieldset>
 		</form>
 	</section>
 	<h1>Your Subscriptions</h1>
+	<section id="subscriptions">
+		{{#subscriptions}}
+		{{>subscription}}
+		{{/subscriptions}}
+		{{^subscriptions}}
+		<p>No Subscriptions</p>
+		{{/subscriptions}}
+	</section>
 </main>
 {{>foot}}

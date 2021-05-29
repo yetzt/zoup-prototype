@@ -1,0 +1,14 @@
+<div class="subscription">
+	<div class="avatar">
+	{{#favicon}}
+		<a href="{{home_page_url}}"><img src="{{.}}" class="avatar" title="{{author}}"></a>
+	{{/favicon}}
+	</div>
+	<div class="info">
+		<h2><a href="{{home_page_url}}">{{title}}</a></h2>
+		<a href="{{home_page_url}}">{{home_page_url}}</a>
+	</div>
+	<div class="action">
+		<button type="button" class="unsubscribe" data-feed="{{feed_url}}"><i class="icon-cross"></i> Unsubscribe</button>
+	</div>
+</div>

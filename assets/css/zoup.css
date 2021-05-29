@@ -468,6 +468,8 @@ main #end a {
 	color: var(--main-text);
 }
 
+/* settings */
+
 .settings-avatar {
 	display: flex;
 	gap: 1em;
@@ -485,4 +487,44 @@ main #end a {
 	border: 1px solid #fff;
 	object-fit: cover;
 	cursor: pointer;
+}
+
+/* subscriptions */
+
+.subscription {
+	display: flex;
+	flex-direction: row;
+	background-color: var(--main-additive);
+	padding: .75rem;
+	gap: .75rem;
+	align-items: center;
+	border-radius: .3rem;
+	color: var(--main-text);
+}
+
+.subscription .avatar {
+	display: flex;
+	width: 48px;
+	height: 48px;
+	background: var(--main-additive);
+	border-radius: .3rem;
+}
+
+.subscription .info {
+	flex-grow: 1;
+}
+
+.subscription .info a {
+	color: var(--main-text);
+}
+
+.subscription .info h2 a {
+	color: var(--main-text);
+	text-decoration: none;
+}
+
+.subscription .action {
+	flex-grow: 0;
+	height: auto;
+	display: flex;
 }

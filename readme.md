@@ -25,7 +25,7 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 * content styles
 * permalinks / post.json
 * tags
-* subscriptions
+* subscriptions ✓
 * friends imports
 * reposting & reacting (authed)
 * federation / discovery / cross site follow
