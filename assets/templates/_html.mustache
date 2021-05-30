@@ -1,25 +1,29 @@
 {{#content}}
+
 	{{#type-html}}
 	<div class="content text html">
 		{{{html}}}
 	</div>
 	{{/type-html}}
+	
 	{{#type-text}}
 	<div class="content text plain">
 		{{{text}}}
 	</div>
 	{{/type-text}}
+	
 	{{#type-markdown}}
 	<div class="content text markdown">
 		{{{markdown}}}
 	</div>
 	{{/type-markdown}}
-
+	
 	{{#type-link}}
 	<div class="content link">
 		<a href="{{{url}}}">{{url}}</a>
 	</div>
 	{{/type-link}}
+	
 	{{#type-link-web}}
 	<div class="content link web">
 		{{#title}}<a href="{{{url}}}"><b>{{title}}</b></a>{{/title}}
@@ -28,12 +32,14 @@
 		<a href="{{{url}}}">{{url}}</a>
 	</div>
 	{{/type-link-web}}
+	
 	{{#type-link-image}}
 	<div class="content link image">
 		<a href="{{{url}}}"><img src="{{{image}}}"{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}></a>
 		<a href="{{{url}}}">{{url}}</a>
 	</div>
 	{{/type-link-image}}
+	
 	{{#type-link-video}}
 	<div class="content link video">
 		<video controls{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
@@ -42,6 +48,7 @@
 		<a href="{{{url}}}">{{url}}</a>
 	</div>
 	{{/type-link-video}}
+	
 	{{#type-link-audio}}
 	<div class="content link audio">
 		<audio controls>
