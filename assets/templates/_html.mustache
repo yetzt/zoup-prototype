@@ -53,19 +53,25 @@
 	
 	{{#type-link-tweet}}
 	<div class="content link tweet">
-		<div class="tweet content">{{{content}}}</div>
-		{{#embeds}}
-		<div class="tweet embed {{type}}">
-			{{#embed-type-video}}
-			<video controls{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
-				<source src="{{{src}}}"{{#mime}} type="{{.}}"{{/mime}}>
-			</video>
-			{{/embed-type-video}}
-			{{#embed-type-image}}
-			<img src="{{{src}}}"{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
-			{{/embed-type-image}}
+		<div class="tweet wrapper">
+			{{#embeds.length}}
+			<div class="tweet embeds">
+				{{#embeds}}
+				<div class="tweet embed {{type}}">
+					{{#embed-type-video}}
+					<video controls{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
+						<source src="{{{src}}}"{{#mime}} type="{{.}}"{{/mime}}>
+					</video>
+					{{/embed-type-video}}
+					{{#embed-type-image}}
+					<img src="{{{src}}}"{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}}>
+					{{/embed-type-image}}
+				</div>
+				{{/embeds}}
+			</div>
+			{{/embeds.length}}
+			<div class="tweet content">{{{content}}}</div>
 		</div>
-		{{/embeds}}
 		<a href="{{{url}}}">{{#userimg}}<img src="{{userimg}}" alt="{{username}}"> {{/userimg}}@{{username}}</a>
 	</div>
 	{{/type-link-tweet}}

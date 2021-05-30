@@ -26,15 +26,13 @@
 	<script type="text/javascript" src="{{{zoup}}}/js/tags.js"></script>
 	<script type="text/javascript">
 		// zoup prototcol handler pointing to own instance
-		$(function(){ if (typeof navigator.registerProtocolHandler === "function") navigator.registerProtocolHandler("web+zoup","{{{base}}}/discover?url=%s"); }); // FIXME proper url
+		// $(function(){ if (typeof navigator.registerProtocolHandler === "function") navigator.registerProtocolHandler("web+zoup","{{{base}}}/discover?url=%s"); }); // FIXME proper url
 	</script>
+	<link rel="stylesheet" type="text/css" href="{{{zoup}}}/css/publish.css" />
+	<script type="text/javascript" src="{{{zoup}}}/js/publish.js"></script>
 	{{#current-settings}}
 	<script type="text/javascript" src="{{{zoup}}}/js/settings.js"></script>
 	{{/current-settings}}
-	{{#current-publish}}
-	<link rel="stylesheet" type="text/css" href="{{{zoup}}}/css/publish.css" />
-	<script type="text/javascript" src="{{{zoup}}}/js/publish.js"></script>
-	{{/current-publish}}
 	{{#current-subscriptions}}
 	<script type="text/javascript" src="{{{zoup}}}/js/mustache.min.js"></script>
 	<script type="text/javascript" src="{{{zoup}}}/js/subscriptions.js"></script>
