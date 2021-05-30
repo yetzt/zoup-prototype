@@ -95,7 +95,7 @@ header {
 header h1 {
 	display: flex;
 	flex-direction: row;
-	align-items: left;
+	align-items: flex-start;
 	font-size: 3em;
 	margin: 0 auto 3rem;
 	font-weight: 100 !important;
