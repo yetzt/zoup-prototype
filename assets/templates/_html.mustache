@@ -80,7 +80,9 @@
 	
 	{{#type-link-embed}}
 	<div class="content link embed">
-		<a href="{{{url}}}" data-src="{{{src}}}"{{#width}} data-width="{{.}}"{{/width}}{{#height}} data-height="{{.}}"{{/height}}>{{title}}{{^title}}{{url}}{{/title}}</a>
+		<iframe src="{{{src}}}"{{#width}} width="{{.}}"{{/width}}{{#height}} height="{{.}}"{{/height}} referrerpolicy="no-referrer" sandbox="allow-same-origin allow-scripts" loading="lazy" allow="fullscreen">
+			<a href="{{{url}}}" data-src="{{{src}}}"{{#width}} data-width="{{.}}"{{/width}}{{#height}} data-height="{{.}}"{{/height}}>{{title}}{{^title}}{{url}}{{/title}}</a>
+		</iframe>
 	</div>
 	{{/type-link-embed}}
 	

@@ -378,6 +378,16 @@ main article img {
 	height: auto;
 }
 
+main article .embed {
+	display: flex;
+}
+
+main article .embed iframe {
+	max-width: 100%;
+	max-height: calc((var(--main-width) - 1rem) / 4 * 3); /* i wish object-contain would just work */
+	object-fit: contain;
+}
+
 main article .tags {
 	display: flex;
 	gap: .2rem;

@@ -4,7 +4,13 @@ $(function(){
 	const template = $('#template-post').html();
 	const base = $('base').attr('href');
 	const $end = $('#end');
-		
+
+	// observe main width
+	document.documentElement.style.setProperty('--main-width', $main.width()+"px");
+	$(window).on('resize', function(){
+		document.documentElement.style.setProperty('--main-width', $main.width()+"px");
+	});
+	
 	// listen to websocket
 	const listen = function(){
 		const ws = new WebSocket(base.replace(/^http?/,'ws')+"stream.json");
