@@ -19,13 +19,16 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 
 ## stuff to be done next
 
+* proxy those stüpid twitter images / better tweet import ✓
+* subscriptions ✓
+
 * feed sorting (wtf)
+* single post page
+* j/k navigation
 * (default) avatar is broken when coming from websocket
-* proxy those stüpid twitter images
 * content styles
 * permalinks / post.json
 * tags
-* subscriptions ✓
 * friends imports
 * reposting & reacting (authed)
 * federation / discovery / cross site follow
