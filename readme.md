@@ -22,6 +22,8 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 * proxy those stüpid twitter images / better tweet import ✓
 * subscriptions ✓
 
+* delete post 
+* tweet should be blocklquote
 * feed sorting (wtf)
 * single post page
 * j/k navigation
@@ -41,4 +43,8 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 * imports from xml-feeds and such
 * embeds from feed
 * sanitize input links
+* fix db on url change?
+* edit posts
+* global drag/drop
+* bookmarklet / browser extension
 
