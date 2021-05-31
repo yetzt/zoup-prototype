@@ -15,22 +15,58 @@ $(function(){
 	const listen = function(){
 		const ws = new WebSocket(base.replace(/^http?/,'ws')+"stream.json");
 		ws.addEventListener('message', function(event) {
-			const post = JSON.parse(event.data);
-			const rendered = Mustache.render(template, { base: base, ...post });
+			const data = JSON.parse(event.data);
 			
-			// preserve scroll state
-			const heightBefore = window.innerHeight;
+			console.log("got message", data);
+			
+			switch (data.event) {
+				case "publish":
+				case "republish":
+			
+					const rendered = Mustache.render(template, { base: base, ...data });
+			
+					// preserve scroll state
+					const heightBefore = window.innerHeight;
 
-			// replace or prepend
-			if ($("#post-"+post.id).length === 1) {
-				$("#post-"+post.id).replaceWith($(rendered));
-			} else {
-				$main.prepend($(rendered));
+					// replace or prepend
+					if ($("#post-"+data.id).length === 1) {
+						$("#post-"+data.id).replaceWith($(rendered));
+					} else {
+						$main.prepend($(rendered));
+					}
+
+					// restore scroll state
+					window.scrollBy(0, window.innerHeight-heightBefore);
+					
+				break;
+				case "unpublish":
+
+					const $post = $("#post-"+data.id);
+
+					if ($post.length === 1) {
+
+						console.log("removing post "+data.id);
+
+						// preserve scroll state
+						const heightBefore = window.innerHeight;
+
+						// ckeck if post is atop scroll position
+						const scrollAfter = ($post.get(0).offsetTop < window.scrollY)
+
+						if (scrollAfter) console.log("adjust scroll position");
+						else console.log("stay put");
+
+						// remove
+						$post.remove();
+
+						// restore scroll state
+						if (scrollAfter) window.scrollBy(0, window.innerHeight-heightBefore);
+
+					}
+
+				break;
 			}
-
-			// restore scroll state
-			window.scrollBy(0, window.innerHeight-heightBefore);
-
+			
 		});
 		ws.addEventListener('open', function(event) {
 			console.log("Websocket is open", ws);
@@ -109,5 +145,68 @@ $(function(){
 	
 	// observe the end if not nigh
 	if ($end.attr("data-next-url")) observer.observe($end[0]);
+	
+	// remove post
+	const removehandler = function(evt){
+		evt.preventDefault();
+		
+		const $btn = $(this);
+		$btn.parent().children().hide();
+
+		$question = $('<label>You sure?</label>');
+		$yesbtn = $('<button><i class="icon-delete" title="remove"></i> Remove it</button>');
+		$nobtn = $('<button><i class="icon-cross" title="remove"></i> Keep it</button>');
+
+		$yesbtn.on('click', function(){
+
+			fetch('/api/unpublish', {
+				method: 'POST',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					"id": $btn.attr("data-id")
+				})
+			}).then(function(resp){
+				if (resp.status === 200) {
+					$btn.parents('article').remove();
+				} else {
+					$question.remove();
+					$nobtn.remove();
+					$yesbtn.remove();
+					$fail = $('<label><i class="icon-warning"></i> Post could not be removed.</label>');
+					$btn.parent().append($fail);
+					setTimeout(function(){
+						$fail.remove();
+						$btn.parent().children().show();
+					},3000);
+				}
+			
+			}).catch(function(err){ 
+				$question.remove();
+				$nobtn.remove();
+				$yesbtn.remove();
+				$fail = $('<label><i class="icon-warning"></i> Post could not be removed.</label>');
+				$btn.parent().append($fail);
+				setTimeout(function(){
+					$fail.remove();
+					$btn.parent().children().show();
+				},3000);
+			});
+			
+		});
+
+		$nobtn.on('click', function(){
+			$question.remove();
+			$nobtn.remove();
+			$yesbtn.remove();
+			$btn.parent().children().show();
+		});
+
+		$btn.parent().append($question).append($yesbtn).append($nobtn);
+	};
+
+	$('button.remove').on('click', removehandler);
 	
 });

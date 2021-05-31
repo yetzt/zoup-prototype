@@ -154,26 +154,15 @@ router.get('/friends.json', function(req, res){
 // websocket stream
 router.ws('/stream.json', function(ws, res){
 
-	// deliver current posts
-	/*
-	zoup.feed({
-		feed: "main",
-	}, function(err, feed){
-		if (err) return;
-		feed.items.reverse().forEach(function(post){
-			ws.send(JSON.stringify(post));
-		});
-	});
-	*/
+	const msg_publish = (post) => ws.send(JSON.stringify({ event: 'publish', ...post }));
+	const msg_unpublish = (post) => ws.send(JSON.stringify({ event: 'unpublish', ...post }));
 
-	const msg = function(post){
-		ws.send(JSON.stringify(post));
-	}
-
-	zoup.on("post", msg);
+	zoup.on("publish", msg_publish);
+	zoup.on("unpublish", msg_unpublish);
 
 	ws.on("close", function(){
-		zoup.off("post", msg);
+		zoup.off("publish", msg_publish);
+		zoup.off("unpublish", msg_unpublish);
 	});
 
 });
@@ -276,7 +265,7 @@ router.get('/discover', function(req, res){
 // publish a post
 router.post("/api/publish", upload.array('upload', 12), function(req, res){
 	if (!req.session.auth) return res.status(401).end("Unauthorized"); // FIXME make middleware
-	zoup.create({
+	zoup.publish({
 		stream: "main",
 		type: "post",
 		upload: req.files,
@@ -289,8 +278,12 @@ router.post("/api/publish", upload.array('upload', 12), function(req, res){
 
 
 // unpublish a post
-router.post('/api/unpublish', function(req, res){
-	res.status(500).end("Not implemented."); // FIXME
+router.post('/api/unpublish', bodyparser.json(), function(req, res){
+	if (!req.session.auth) return res.status(401).end("Unauthorized"); // FIXME make middleware
+	zoup.unpublish(req.body.id, function(err, id){
+		if (err) return res.status(500).json({ error: err.toString() });
+		res.status(200).json();
+	});
 });
 
 // repost

@@ -383,6 +383,7 @@ main article .embed {
 }
 
 main article .embed iframe {
+	width: 100%;
 	max-width: 100%;
 	max-height: calc((var(--main-width) - 1rem) / 4 * 3); /* i wish object-contain would just work */
 	object-fit: contain;
@@ -484,6 +485,12 @@ main article:hover .action {
 	opacity: 1;
 }
 
+main article .action label {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: var(--main-text);
+}
 
 main p {
 	margin: 0;

@@ -16,7 +16,10 @@
 	{{/tags.length}}
 	</div>
 	<div class="action">
-		<button class="repost" data-url="{{url}}"><i class="icon-repost"></i> repost</button>
-		<button class="react" data-url="{{url}}"><i class="icon-comment"></i> react</button>
+		{{#auth}}
+		<button class="remove" data-id="{{id}}"><i class="icon-delete" title="remove"></i> remove</button>
+		{{/auth}}
+		<button class="repost" data-url="{{url}}"><i class="icon-repost" title="repost"></i> repost</button>
+		<button class="react" data-url="{{url}}"><i class="icon-comment" title="react"></i> react</button>
 	</div>
 </article>
