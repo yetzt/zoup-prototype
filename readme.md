@@ -24,6 +24,7 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 * delete post ✓
 
 * resize & optimize uploaded images
+* invisible text input mobile
 * tweet should be blocklquote
 * feed sorting (wtf)
 * single post page
