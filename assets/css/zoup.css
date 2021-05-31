@@ -117,17 +117,29 @@ header h1 img {
 		height: 10rem;
 		align-items: center;
 	}
-	
-	header h1 {
-		max-width: calc(100% - 1rem);
-		margin: -3rem auto 0;
-		font-size: 2rem;
-	}
 
 	header h1 img {
 		max-width: 2.5rem;
 		max-height: 2.5rem;
 	}
+}
+
+@media only screen and (min-width: 401px) and (max-width: 800px) {
+	header h1 {
+		max-width: calc(100% - 1rem);
+		margin: -3rem auto 0;
+		font-size: 2rem;
+	}
+}
+
+
+@media only screen and (max-width: 400px) {
+	header h1 {
+		max-width: calc(100% - 1rem);
+		margin: -6rem auto 0;
+		font-size: 2rem;
+	}
+
 }
 
 #nav-main {
@@ -195,8 +207,6 @@ header h1 img {
 	margin-top: 1em;
 }
 
-
-
 #nav-meta a {
 	display: flex;
 	height: 3em;
@@ -224,14 +234,25 @@ header h1 img {
 	box-shadow: inset var(--main-lighten) 0 0 0 2em;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 401px) and (max-width: 800px) {
 	#nav-meta-wrapper {
 		position: absolute;
-		top: calc(10rem - 3.5rem);
+		top: 6.5rem;
 		right: 0;
 	}
 	
+}
 
+@media only screen and (max-width: 400px) {
+	#nav-meta-wrapper {
+		position: absolute;
+		top: 3.5rem; 
+		right: auto;
+		left: 0;
+	}
+}
+	
+@media only screen and (max-width: 800px) {
 	#nav-meta {
 		display: flex;
 		position: relative;
@@ -249,6 +270,7 @@ header h1 img {
 	}
 
 }
+
 main {
 	display: flex;
 	flex-direction: column;
@@ -490,6 +512,12 @@ main article .action label {
 	flex-direction: row;
 	align-items: center;
 	color: var(--main-text);
+}
+
+@media only screen and (max-width: 400px) {
+	main article .action button span {
+		display: none;
+	}
 }
 
 main p {
