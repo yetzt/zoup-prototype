@@ -1,5 +1,5 @@
 @font-face { font-family: 'icons';
-	src: url('icomoon.woff2') format('woff2'), url('icomoon.woff') format('woff');
+	src: url('icomoon.woff2?v1') format('woff2'), url('icomoon.woff?v1') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
