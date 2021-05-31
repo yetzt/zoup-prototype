@@ -17,6 +17,8 @@
 	-moz-osx-font-smoothing: grayscale; 
 }
 
+
+.icon-jsonfeed:before { content: "\e904"; }
 .icon-ghost:before { content: "\e902"; }
 .icon-zoup:before { content: "\e903"; }
 .icon-spaceinvader:before { content: "\e900"; }
@@ -32,14 +34,19 @@
 .icon-tag:before { content: "\e935"; }
 .icon-comment:before { content: "\e96b"; }
 .icon-person:before { content: "\e971"; }
-.icon-follow:before { content: "\e973"; }
+.icon-person-plus:before { content: "\e973"; }
 .icon-spinner:before { content: "\e984"; }
 .icon-enlarge:before { content: "\e98b"; }
 .icon-shrink:before { content: "\e98c"; }
 .icon-key:before { content: "\e98d"; }
-.icon-settings:before { content: "\e994"; }
+.icon-wrench:before { content: "\e991"; }
+.icon-settings:before { content: "\e992"; }
+.icon-cog:before { content: "\e994"; }
+.icon-cogs:before { content: "\e995"; }
 .icon-fire:before { content: "\e9a9"; }
+.icon-delete:before { content: "\e9ac"; }
 .icon-switch:before { content: "\e9b6"; }
+.icon-menu:before { content: "\e9bd"; }
 .icon-download:before { content: "\e9c2"; }
 .icon-globe:before { content: "\e9c9"; }
 .icon-link:before { content: "\e9cb"; }
@@ -47,7 +54,9 @@
 .icon-bookmark:before { content: "\e9d2"; }
 .icon-star:before { content: "\e9d9"; }
 .icon-heart:before { content: "\e9da"; }
+.icon-warning:before { content: "\ea07"; }
 .icon-plus:before { content: "\ea0a"; }
+.icon-minus:before { content: "\ea0b"; }
 .icon-cross:before { content: "\ea0f"; }
 .icon-check:before { content: "\ea10"; }
 .icon-volume:before { content: "\ea27"; }
@@ -72,7 +81,7 @@
 .icon-npm:before { content: "\eab1"; }
 .icon-tumblr:before { content: "\eab9"; }
 .icon-soundcloud:before { content: "\eac3"; }
-.icon-reddit:before { content: "\eac6"; } 
+.icon-reddit:before { content: "\eac6"; }
 
 .spin {
 	display: inline-block;
