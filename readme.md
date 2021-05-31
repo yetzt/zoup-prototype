@@ -21,8 +21,9 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 
 * proxy those stüpid twitter images / better tweet import ✓
 * subscriptions ✓
+* delete post ✓
 
-* delete post 
+* resize & optimize uploaded images
 * tweet should be blocklquote
 * feed sorting (wtf)
 * single post page
