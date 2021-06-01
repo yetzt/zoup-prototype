@@ -27,7 +27,7 @@ const router = express.Router();
 
 websocket(server);
 
-const upload = multer({ dest: path.resolve(os.tmpdir(),'zoup') });  // FIXME sort out paths // path.resolve(config.get('datadir'), "store") });
+const upload = multer({ dest: os.tmpdir() });  // FIXME sort out paths // path.resolve(config.get('datadir'), "store") });
 
 const root = url.parse(config.get("url"))
 
