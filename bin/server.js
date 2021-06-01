@@ -154,6 +154,10 @@ router.get('/friends.json', function(req, res){
 // websocket stream
 router.ws('/stream.json', function(ws, res){
 
+	const ping = setInterval(function(){
+		ws.send(JSON.stringify({ event: 'ping' }));
+	},30000).unref();
+
 	const msg_publish = (post) => ws.send(JSON.stringify({ event: 'publish', ...post }));
 	const msg_unpublish = (post) => ws.send(JSON.stringify({ event: 'unpublish', ...post }));
 
@@ -161,6 +165,7 @@ router.ws('/stream.json', function(ws, res){
 	zoup.on("unpublish", msg_unpublish);
 
 	ws.on("close", function(){
+		clearInterval(ping);
 		zoup.off("publish", msg_publish);
 		zoup.off("unpublish", msg_unpublish);
 	});
