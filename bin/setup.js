@@ -174,6 +174,13 @@ const config = new conf();
 		initial: Math.max(0,pm.findIndex(function(v){
 			return v.value === config.get("pm")
 		})),
+	},{
+		type: 'toggle',
+		name: 'autoupdate',
+		message: 'Install updates automatically?',
+		initial: true,
+		active: 'Yes',
+		inactive: 'No'
 	}]);
 
 	if (data.password === null) { // keep the password
