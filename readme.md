@@ -23,6 +23,7 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 * subscriptions ✓
 * delete post ✓
 
+* mkdirps data dir on setup
 * resize & optimize uploaded images
 * invisible text input mobile
 * tweet should be blocklquote
