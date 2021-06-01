@@ -18,6 +18,7 @@ const multer = require("multer");
 const bodyparser = require("body-parser");
 const websocket = require("express-ws");
 
+const autoupdate = require("../lib/autoupdate");
 const mustache = require("../lib/mustache");
 const store = require("../lib/session-store");
 const zoup = require("../lib/zoup");
