@@ -14,7 +14,7 @@
   "author": "yetzt <zoup@yetzt.me>",
   "license": "UNLICENSE",
   "dependencies": {
-    "@yetzt/express-ws": "^4.0.1",
+    "@yetzt/express-ws": "^4.0.2",
     "@yetzt/linvodb": "^3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
