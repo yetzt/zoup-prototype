@@ -16,7 +16,6 @@ const express = require("express");
 const session = require("express-session")
 const multer = require("multer");
 const bodyparser = require("body-parser");
-const websocket = require("express-ws");
 
 const autoupdate = require("../lib/autoupdate");
 const mustache = require("../lib/mustache");
@@ -26,6 +25,7 @@ const zoup = require("../lib/zoup");
 const server = express();
 const router = express.Router();
 
+const websocket = require("@yetzt/express-ws");
 websocket(server);
 
 const upload = multer({ dest: os.tmpdir() });  // FIXME sort out paths // path.resolve(config.get('datadir'), "store") });
