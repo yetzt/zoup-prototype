@@ -17,8 +17,6 @@ $(function(){
 		ws.addEventListener('message', function(event) {
 			const data = JSON.parse(event.data);
 			
-			console.log("got message", data);
-			
 			switch (data.event) {
 				case "publish":
 				case "republish":
