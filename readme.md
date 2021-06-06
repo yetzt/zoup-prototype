@@ -19,20 +19,14 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 
 ## stuff to be done next
 
-* proxy those stüpid twitter images / better tweet import ✓
-* subscriptions ✓
-* delete post ✓
-
+* pwa meta tags, app icon, etc
 * mkdirps data dir on setup
 * resize & optimize uploaded images
 * invisible text input mobile
 * tweet should be blocklquote
 * feed sorting (wtf)
-* single post page
 * j/k navigation
-* (default) avatar is broken when coming from websocket
-* content styles
-* permalinks / post.json
+* content styles (what?)
 * tags
 * friends imports
 * reposting & reacting (authed)
@@ -40,14 +34,18 @@ this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](h
 * reposting & reacting (federated)
 * friends stream
 * rich-ish editor (markdown)
-* (self-)updatability
 * deployability
-* autoupdate (git pull && restart?)
 * imports from xml-feeds and such
-* embeds from feed
 * sanitize input links
 * fix db on url change?
 * edit posts
 * global drag/drop
 * bookmarklet / browser extension
 
+# done
+
+* embeds from feed ✓
+* autoupdate (git pull && restart?) ✓
+* permalinks / post.json ✓
+* (default) avatar is broken when coming from websocket ✓
+* single post page ✓
