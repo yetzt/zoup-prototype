@@ -209,12 +209,24 @@ router.post('/login', bodyparser.urlencoded({ extended: true }), function(req, r
 
 // post json
 router.get('/post/:id.json', function(req, res){
-	res.status(500).end("Not implemented."); // FIXME
+	zoup.get(req.params.id, function(err, post){
+		if (err) return res.status(500).json();
+		if (!post) return res.status(404).json({});
+		res.status(200).json(zoup.item(post));
+	});
 });
 
 // post html
 router.get('/post/:id', function(req, res){
-	res.status(500).end("Not implemented."); // FIXME
+	zoup.get(req.params.id, function(err, post){
+		if (err) res.status(500);
+		else if (!post) res.status(404);
+		res.render('post', {
+			req: req,
+			current: "stream",
+			post: post,
+		});
+	});
 });
 
 // tag feed
