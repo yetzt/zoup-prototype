@@ -74,7 +74,7 @@ $(function(){
 			setTimeout(listen,1000);
 		});
 	};
-	listen();
+	if ($end.length > 0) listen();
 
 	// intersection observer for end element
 	const observer = new IntersectionObserver(function(entries, observer){
@@ -105,11 +105,12 @@ $(function(){
 			response.json().then(function(feed){
 
 				feed.items.forEach(function(post){
-					$end.before(rendered);
 					const rendered = $(Mustache.render(template, { base: base, auth: auth, zoup: base+'zoup', ...post }));
 
-					// FIXME: add all the magic events
+					// add button handlers
+					$('button.remove', rendered).on('click', removehandler);
 
+					$end.before(rendered);
 				});
 				
 				// fix up the end
@@ -143,7 +144,7 @@ $(function(){
 	});
 	
 	// observe the end if not nigh
-	if ($end.attr("data-next-url")) observer.observe($end[0]);
+	if ($end.length > 0 && $end.attr("data-next-url")) observer.observe($end[0]);
 	
 	// remove post
 	const removehandler = function(evt){
