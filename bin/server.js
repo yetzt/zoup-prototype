@@ -122,7 +122,6 @@ router.get('/publish', function(req, res){
 router.get('/subscriptions', function(req, res){
 	if (!req.session.auth) return res.redirect(config.get("url")); // FIXME make this middleware
 	zoup.subscriptions(function(err, subscriptions){
-		console.log(subscriptions);
 		res.render('subscriptions', { 
 			req: req,
 			current: "subscriptions",
