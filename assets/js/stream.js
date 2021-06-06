@@ -4,6 +4,7 @@ $(function(){
 	const template = $('#template-post').html();
 	const base = $('base').attr('href');
 	const $end = $('#end');
+	const auth = $('#logout').length > 0;
 
 	// observe main width
 	document.documentElement.style.setProperty('--main-width', $main.width()+"px");
@@ -21,7 +22,7 @@ $(function(){
 				case "publish":
 				case "republish":
 			
-					const rendered = Mustache.render(template, { base: base, ...data });
+					const rendered = Mustache.render(template, { base: base, auth: auth, zoup: base+'zoup', ...data });
 			
 					// preserve scroll state
 					const heightBefore = window.innerHeight;
@@ -104,8 +105,8 @@ $(function(){
 			response.json().then(function(feed){
 
 				feed.items.forEach(function(post){
-					const rendered = $(Mustache.render(template, { base: base, zoup: base+'zoup', ...post }));
 					$end.before(rendered);
+					const rendered = $(Mustache.render(template, { base: base, auth: auth, zoup: base+'zoup', ...post }));
 
 					// FIXME: add all the magic events
 
