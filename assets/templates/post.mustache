@@ -1,0 +1,12 @@
+{{>head}}
+{{>header}}
+{{>nav}}
+<main>
+	{{#post}}
+	{{>post}}
+	{{/post}}
+	{{^post}}
+	<p>This post does not exist.</p>
+	{{/post}}
+</main>
+{{>foot}}
