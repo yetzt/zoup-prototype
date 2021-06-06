@@ -2,9 +2,9 @@
 	{{#title}}<h2>{{.}}</h2>{{/title}}
 	<div class="meta">
 		<div class="authors">
-			{{#authors}}
-			<a href="{{url}}" title="{{name}}">{{#avatar}}<img src="{{.}}">{{/avatar}}{{^avatar}}<img src="{{zoup}}/images/default.png">{{/avatar}}</a>
-			{{/authors}}
+			{{#authors.length}}
+			<a href="{{url}}" title="{{authors.0.name}}">{{#authors.0.avatar}}<img src="{{.}}">{{/authors.0.avatar}}{{^authors.0.avatar}}<img src="{{zoup}}/images/default.png">{{/authors.0.avatar}}</a>
+			{{/authors.length}}
 		</div>
 	</div>
 	<div class="content-wrapper">
