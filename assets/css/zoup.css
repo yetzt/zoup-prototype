@@ -409,6 +409,7 @@ main article .embed iframe {
 	max-width: 100%;
 	max-height: calc((var(--main-width) - 1rem) / 4 * 3); /* i wish object-contain would just work */
 	object-fit: contain;
+	border: none;
 }
 
 main article .tags {

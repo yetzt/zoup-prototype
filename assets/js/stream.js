@@ -209,4 +209,22 @@ $(function(){
 
 	$('button.remove').on('click', removehandler);
 	
+	// 
+	window.addEventListener("message", function(e){
+
+		// adjust tumblr iframe height
+		if (e.origin === "https://embed.tumblr.com" && typeof e.data === "object" && e.data.type === "embed-size" && e.data.height) {
+			const iframe = Array.from($('iframe[src^="'+e.origin+'"]')).find(function(i){
+				return (i.contentWindow === e.source)
+			});
+			if (iframe) {
+				const $iframe = $(iframe);
+				$iframe.attr("height", e.data.height);
+				$iframe.attr("style", "height: "+e.data.height+"px !important; max-height: "+e.data.height+"px !important");
+				// $iframe.css({ height: e.data.height+"px !important", "max-height": e.data.height+"px !important" });
+			}
+		}
+
+	}, false);
+	
 });
