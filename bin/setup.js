@@ -6,7 +6,6 @@ const conf = require("conf");
 const prompts = require("prompts");
 const zxcvbn = require("zxcvbn");
 const color = require("kleur");
-const chalk = require("chalk");
 const pure = require("pure-color");
 const bcrypt = require("bcryptjs");
 const resolve = require("resolve-global").silent;
@@ -18,6 +17,12 @@ const password = require("../lib/password");
 const homedir = path.resolve(process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME']);
 
 const config = new conf();
+
+// hex to ansi color helper
+const hex2ansi = function hex2ansi(hex, str, bg){
+	return ("\u001B["+((!!bg)?38:48)+";2;"+parseInt(hex.substr(1,2),16)+";"+parseInt(hex.substr(3,2),16)+";"+parseInt(hex.substr(5,2),16)+"m")+str+("\u001B["+((!!bg)?39:49)+"m");
+};
+
 
 (async function(){
 
@@ -94,7 +99,7 @@ const config = new conf();
 			if (c.length === 0 || c.length%3 !== 0) return;
 			if (c.length === 3) c = c[0]+c[0]+c[1]+c[1]+c[2]+c[2];
 			c = "#"+c;
-			this.msg = chalk.hex(c)(this.msg);
+			this.msg = hex2ansi(c, this.msg);
 		},
 		onState: function() {
 			let c = (this._value||this.initial);
@@ -102,7 +107,7 @@ const config = new conf();
 			if (c.length === 0 || c.length%3 !== 0) return;
 			if (c.length === 3) c = c[0]+c[0]+c[1]+c[1]+c[2]+c[2];
 			c = "#"+c;
-			this.rendered = chalk.hex(c).inverse(this.rendered);
+			this.rendered = hex2ansi(c, this.rendered, true);
 		}
 	},{
 		type: 'toggle',
