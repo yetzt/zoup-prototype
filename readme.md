@@ -1,6 +1,7 @@
 # the zoup reference implementation prototype
 
-this is the prototypical implementation of the [zoup](https://zoup.io/) [spec](https://github.com/zoupio/spec/blob/main/spec.md).
+this is a prototypical implementation of the [zoup](https://zoup.io/) [spec](https://github.com/zoupio/spec/blob/main/spec.md).
+it's not for production use as of yet.
 
 ## somewhat working so far
 
